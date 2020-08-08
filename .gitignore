@@ -1,6 +1,6 @@
 bin/
 obj/
 Properties/
-wwwroot/
 appsettings.Development.json
 appsettings.json
+.vscode/
