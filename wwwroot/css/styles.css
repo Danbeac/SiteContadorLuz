@@ -187,3 +187,12 @@ section .section-last-month h4{
     padding-left: 70px;
     width: 260px;
 }
+
+footer{
+    height: 60px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: absolute;
+    margin-right: 20px;
+}
