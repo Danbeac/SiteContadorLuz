@@ -4,6 +4,10 @@ namespace Contador_Luz.Models
     {
         public string Nombre {get; set;}
 
+        public string Id {get;set;}
+        
+        public int VatiosConsumidos {get;set;}
+
         public int AcumuladoVatiosAnterior {get;set;}
 
         public int AcumuladoVatiosHoy {get; set;}
