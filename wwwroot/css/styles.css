@@ -87,6 +87,7 @@ section .section-last-month h4{
 .section-last-month table{
     width: 100%;
     height: 65%;
+    font-size: larger; 
 }
 
 .section-last-month table td{
@@ -134,7 +135,7 @@ section .section-last-month h4{
     height: 200px;
 }
 
-.section-button input{
+.section-button button{
     font-size: 20px;
     font-family: 'Cabin', sans-serif;
     padding: 20px 60px;
@@ -142,7 +143,7 @@ section .section-last-month h4{
     background-color: #243F5B;
 }
 
-.section-button input:hover{
+.section-button button:hover{
     color: rgb(239, 247, 245);
     box-shadow: 0 4px 10px rgb(109, 117, 115) ;
     border: 1px solid rgb(109, 117, 115);

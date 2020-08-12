@@ -7,58 +7,62 @@
             <h4>Mes anterior</h4>
             <table>
                 <tr>
-                    <td class="title-labels">Label Local 1</td>
-                    <td class="title-labels">Label Local 2</td>
+                    <td class="title-labels">@ViewBag.Locales[0].Nombre</td>
+                    <td class="title-labels">@ViewBag.Locales[1].Nombre</td>
                 </tr>
                 <tr>
-                    <td class="values-labels">lbl cantidad  vatios</td>
-                    <td class="values-labels">lbl cantidad vatios</td>
+                    <td class="values-labels">@ViewBag.Locales[0].AcumuladoVatiosAnterior vatios</td>
+                    <td class="values-labels">@ViewBag.Locales[1].AcumuladoVatiosAnterior vatios</td>
                 </tr>
             </table>
         </div>
     </section>
 
-    <section class="section-third">
-        <div class="middle-wraps">
-            <h4>Mes actual</h4>
-            <table>
-                <tr>
-                    <td class="modify-td">Acumulado Contador local 1</td>
-                    <td> <input type="text"> </td>
-                </tr>
-                <tr>
-                    <td class="modify-td">Acumulado Contador local 2</td>
-                    <td> <input type="text"> </td>
-                </tr>
-                <tr>
-                    <td class="modify-td">Vatios Consumidos</td>
-                    <td> <input type="text"> </td>
-                </tr>
-                <tr>
-                    <td class="modify-td">Valor Vatio $</td>
-                    <td> <input type="text"> </td>
-                </tr>
-            </table>
-        </div>
-        <div class="middle-wraps">
-            <h4>Subsidio</h4>
-            <table class="table-subsidio">
-                <tr>
-                    <td class="modify-td-sub">Valor $</td>
-                    <td> <input type="text"> </td>
-                </tr>
-                <tr>
-                    <td class="modify-td-sub">Label Local 1</td>
-                    <td> <input type="text"> </td>
-                </tr>
-                <tr>
-                    <td class="modify-td-sub">Label Local 2</td>
-                    <td> <input type="text" > </td>
-                </tr>
-            </table>
-        </div>
-    </section>
+    <form method="post">
+        <section class="section-third">
+            <div class="middle-wraps">
+                <h4>Mes actual</h4>
+                <table>
+                    <tr>
+                        <td class="modify-td">Acumulado Contador @ViewBag.Locales[0].Nombre</td>
+                        <td> <input type="text" name="Acum_LocalA"> </td>
+                    </tr>
+                    <tr>
+                        <td class="modify-td">Acumulado Contador @ViewBag.Locales[1].Nombre</td>
+                        <td> <input type="text" name="Acum_LocalB"> </td>
+                    </tr>
+                    <tr>
+                        <td class="modify-td">Vatios Consumidos</td>
+                        <td> <input type="text" name="totalVatConsumidos"> </td>
+                    </tr>
+                    <tr>
+                        <td class="modify-td">Valor Vatio $</td>
+                        <td> <input type="text" name="valorVatio"> </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="middle-wraps">
+                <h4>Subsidio</h4>
+                <table class="table-subsidio">
+                    <tr>
+                        <td class="modify-td-sub">Valor $</td>
+                        <td> <input type="text" name="subsidio"> </td>
+                    </tr>
+                    <tr>
+                        <td class="modify-td-sub">@ViewBag.Locales[0].Nombre</td>
+                        <td> <input type="text" name="subLocalA"> </td>
+                    </tr>
+                    <tr>
+                        <td class="modify-td-sub">@ViewBag.Locales[1].Nombre</td>
+                        <td> <input type="text" name="subLocalB"> </td>
+                    </tr>
+                </table>
+            </div>
+        </section>
 
-    <section class="section-button">
-        <input type="button" value="Generar">
-    </section>
+        <section class="section-button">
+            @* <input type="button" value="Generar" runat="server"> *@
+            <button type="submit">Generar</button>
+        </section>
+    </form>
+    
