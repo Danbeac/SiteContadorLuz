@@ -14,6 +14,5 @@ namespace Contador_Luz.Models
 
         public static int Subsidio {get;set;}
 
-
     }
 }
