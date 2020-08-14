@@ -14,6 +14,10 @@ namespace Contador_Luz.Models
 
 
         Dictionary<string,string> DicParameter = new Dictionary<string,string>();
+        Dictionary<string,int> DicParameterInt = new Dictionary<string,int>();
+        string stringDefault = "Integrated Security=SSPI;Persist Security Info=False;User ID=sa;Data Source=4NDR3S_B3RN4L;Initial Catalog=Bernal";
+
+        
 
 
         public DataSet EjecutarQuery()
@@ -57,6 +61,11 @@ namespace Contador_Luz.Models
                     cmd.Parameters.Add(new SqlParameter(pmt.Key,pmt.Value));
                 }
 
+                foreach(var pmt in DicParameterInt)
+                {
+                    cmd.Parameters.Add(new SqlParameter(pmt.Key,pmt.Value));
+                }
+
                 var da = new SqlDataAdapter(cmd);
 
                 da.Fill(ds);
@@ -75,8 +84,6 @@ namespace Contador_Luz.Models
 
         public Query(string conn = "")
         {
-            string stringDefault = "Integrated Security=SSPI;Persist Security Info=False;User ID=sa;Data Source=4NDR3S_B3RN4L;Initial Catalog=Bernal";
-
             if (conn == "")
             {
                 this.ConnectionStrings = stringDefault;
@@ -87,10 +94,15 @@ namespace Contador_Luz.Models
             }
         }
 
-        internal void AgregarParametro(string namParameter, int valParameter)
+        internal void AgregarParametro(string namParameter, string valParameter)
         {
 
             DicParameter.Add(namParameter,valParameter.ToString());
+        }
+
+        internal void AgregarParametro(string namParameter, int valParameter)
+        {
+            DicParameterInt.Add(namParameter,valParameter);
         }
     }
 }

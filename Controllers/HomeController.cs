@@ -76,7 +76,8 @@ namespace Contador_Luz.Controllers
 
             var Query = new Query();
             Query.Nombre = "SP_Consultas_Basicas";
-            Query.AgregarParametro("@opcion",2);
+            Query.AgregarParametro("@opcion",1);
+            Query.AgregarParametro("@prm","dog");
             ds = Query.EjecutarProcedimiento();
 
             dt = ds.Tables[0];
