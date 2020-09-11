@@ -23,8 +23,8 @@ namespace Contador_Luz.Controllers
         public IActionResult Index()
         {
             ViewBag.Locales = Home.Locales;
-            PruebaQuery();
-            PruebaProcedimiento();
+            // PruebaQuery();
+            // PruebaProcedimiento();
 
             return View();
         }
@@ -44,11 +44,11 @@ namespace Contador_Luz.Controllers
             int SubLocalA = Convert.ToInt32(Datos["subLocalA"]);
             int SubLocalB = Convert.ToInt32(Datos["subLocalB"]);
 
-            CalcularVatiosConsumidosLocales(AcumLocalA, AcumLocalB);
+            Calculator.VatiosConsumidosLocales(AcumLocalA, AcumLocalB);
             Calculator.GenerarValoresPago();
-            CalcularSubsidioXLocal(SubLocalA, SubLocalB);
+            Calculator.SubsidioXLocal(SubLocalA, SubLocalB);
 
-            return View();
+            return View("Results");
         }
 
         private void PruebaQuery()
@@ -84,39 +84,25 @@ namespace Contador_Luz.Controllers
             var sound = dt.Rows[0][0];
         }
 
-        private void CalcularSubsidioXLocal(int subLocalA, int subLocalB)
-        {
-            int[] arrSubsidio = new int[2] { subLocalA, subLocalB };
-            int i = 0;
-
-            foreach (var lc in Home.Locales)
-            {
-                Home.Locales[i].PorcentajeSubAplicado = arrSubsidio[i];
-                i++;
-            }
-
-            Calculator.GenerarDescuentoSubsidio();
-
-        }
-
-        private void CalcularVatiosConsumidosLocales(int acumLocalA, int acumLocalB)
-        {
-            int[] arrAcumulados = new int[2] { acumLocalA, acumLocalB };
-            int i = 0;
-
-            foreach (var lc in Home.Locales)
-            {
-
-                string IdLocal = Home.Locales[i].Id;
-                Calculator.GenerarVatiosConsumidos(arrAcumulados[i], IdLocal);
-                i++;
-            }
-        }
+        
 
         public IActionResult Privacy()
         {
             return View();
         }
+
+        public IActionResult Results()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Results(IFormCollection form)
+        {
+            return View();
+        }
+
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

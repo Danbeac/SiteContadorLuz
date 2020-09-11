@@ -1,0 +1,35 @@
+/* Estilos de DataResult.html */
+
+.wrapper-result{
+    margin: 150px auto;
+    border: 1px solid red;
+    width: 700px;
+    height: 300px;
+    border-radius:4px ;
+    box-shadow: 0 3px 6px #303641;
+    border: 1px solid #303641;
+}
+
+.wrapper-result:hover{
+    box-shadow: 0 1px 6px   #17199f  ;
+}
+
+.wrapper-result .wrapper-labels label{
+    font-size: 60px;
+    margin-left: 50px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.wrapper-result .wrapper-values img{
+    width: 100px;
+    height: 70px;
+    margin-left: 50px;
+}
+
+.wrapper-result .wrapper-values label{
+    font-size: 30px;
+}
+.wrapper-result .wrapper-benefit label{
+    font-size: 15px;
+    margin-left: 50px;
+}
