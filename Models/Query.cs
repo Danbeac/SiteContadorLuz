@@ -15,7 +15,7 @@ namespace Contador_Luz.Models
 
         Dictionary<string,string> DicParameter = new Dictionary<string,string>();
         Dictionary<string,int> DicParameterInt = new Dictionary<string,int>();
-        string stringDefault = "Integrated Security=SSPI;Persist Security Info=False;User ID=sa;Data Source=4NDR3S_B3RN4L;Initial Catalog=Bernal";
+        string stringDefault = "Integrated Security=SSPI;Persist Security Info=False;User ID=sa;Data Source=4NDR3S_B3RN4L;Initial Catalog=PRUEBAS";
 
         
 
