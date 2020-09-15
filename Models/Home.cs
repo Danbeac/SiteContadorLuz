@@ -13,6 +13,7 @@ namespace Contador_Luz.Models
         public static int ValorVatio {get;set;}
 
         public static int Subsidio {get;set;}
+        public static int ValorTotal {get;set;}
 
     }
 }

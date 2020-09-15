@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 
 namespace Contador_Luz.Models
@@ -61,7 +62,14 @@ namespace Contador_Luz.Models
             }
 
             GenerarDescuentoSubsidio();
+            GenerarValorTotal();
+        }
 
+        private static void GenerarValorTotal()
+        {
+            int Total = Home.Locales[0].Pago + Home.Locales[1].Pago;
+            Home.ValorTotal = Total;
+            
         }
     }
 }

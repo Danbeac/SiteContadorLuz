@@ -1,15 +1,17 @@
 @{
     ViewData["Title"] = "Resultados";
 }
-
+<div class="wrapper-button-back">
+    <a href="./Home/Index">Back</a>
+</div>
 <div class="wrapper-result">
         <div class="wrapper-labels">
             <div class="row">
                 <div class="col-6">
-                    <label>Fruteria</label>
+                    <label>@ViewBag.Locales[0].Nombre</label>
                 </div>
                 <div class="col-6">
-                    <label>Pizzeria</label>
+                    <label>@ViewBag.Locales[1].Nombre</label>
                 </div>
             </div>
         </div>
@@ -19,27 +21,31 @@
                     <img src="/img/pesos.png" alt="">
                 </div>
                 <div class="col-3">
-                    <label for="">$25000</label>
+                    <label for="">$ @ViewBag.Locales[0].Pago</label>
                 </div>
                 <div class="col-3">
                     <img src="/img/pesos.png" alt="">
                 </div>
                 <div class="col-3">
-                    <label for="">$25000</label>
+                    <label for="">$ @ViewBag.Locales[1].Pago</label>
                 </div>
             </div>
         </div>
         <div class="wrapper-benefit">
             <div class="row">
                 <div class="col-4">
-                    <label for="">%50</label>
+                    <label for="">%@ViewBag.Locales[0].PorcentajeSubAplicado</label>
                 </div>
                 <div class="col-4 ">
-                    <label for="">Subsidio: $50000</label>
+                    <label for="" name = "sub">Subsidio: $@ViewBag.Subsidio</label>
                 </div>
                 <div class="col-4">
-                    <label for="">%50</label>
+                    <label for="">%@ViewBag.Locales[1].PorcentajeSubAplicado</label>
                 </div>
             </div>
         </div>
     </div>
+
+<div class="wrapper-button-save">
+    <a onclick="location.href='@Url.Action("Guardar","Home")'" href="#">Guardar</a>
+</div>

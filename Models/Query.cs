@@ -104,6 +104,38 @@ namespace Contador_Luz.Models
         {
             DicParameterInt.Add(namParameter,valParameter);
         }
+
+        // private void PruebaProcedimiento()
+        // {
+        //     DataSet ds = new DataSet();
+        //     DataTable dt = new DataTable();
+
+        //     var Query = new Query();
+        //     Query.Nombre = "SP_Consultas_Basicas";
+        //     Query.AgregarParametro("@opcion", 1);
+        //     Query.AgregarParametro("@prm", "dog");
+        //     ds = Query.EjecutarProcedimiento();
+
+        //     dt = ds.Tables[0];
+        //     var sound = dt.Rows[0][0];
+        // }
+
+
+        // private void PruebaQuery()
+        // {
+        //     DataSet ds = new DataSet();
+        //     DataTable dt = new DataTable();
+
+        //     string conn = "Integrated Security=SSPI;Persist Security Info=False;User ID=sa;Data Source=4NDR3S_B3RN4L;Initial Catalog=Bernal";
+        //     Query query = new Query(conn);
+        //     query.Nombre = "select * from Contador_Luz";
+        //     ds = query.EjecutarQuery();
+
+        //     if (ds.Tables.Count > 0)
+        //     {
+        //         dt = ds.Tables[0];
+        //     }
+        // }
     }
 }
 
