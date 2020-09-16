@@ -63,81 +63,10 @@ namespace Contador_Luz.Controllers
 
         public IActionResult Guardar()
         {
-            int idPago = GenerarIdPago();
-            GuardarPagoLocales(idPago);
+            Engine.AlmacenarInfoBD();
 
             ViewBag.Locales = Home.Locales;
             return View("Index");
-        }
-
-        private void GuardarPagoLocales(int idPago)
-        {
-
-            string[] rtas = new string[2];
-            int numLocal = 0;
-
-            foreach (Local local in Home.Locales)
-            {
-                try
-                {
-                    Query query = new Query();
-                    DataSet ds = new DataSet();
-                    DataTable dt = new DataTable();
-                    query.Nombre = "Sp_Contador_Vatios";
-                    query.AgregarParametro("@Opcion", 3);
-                    query.AgregarParametro("@IdPago", idPago);
-                    query.AgregarParametro("@IdLocal", local.Id);
-                    query.AgregarParametro("@PorcSubAplicado", local.PorcentajeSubAplicado);
-                    query.AgregarParametro("@ValorPago", local.Pago);
-                    query.AgregarParametro("@VatiosConsumidosLc", local.VatiosConsumidos);
-                    query.AgregarParametro("@AcumuladoVatiosLc", local.AcumuladoVatiosHoy);
-                    ds = query.EjecutarProcedimiento();
-
-                    dt = ds.Tables[0];
-                    rtas[numLocal] = (Convert.ToString(dt.Rows[0][0]) + " Local " + local.Nombre);
-                    numLocal++;
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex);
-                    numLocal++;
-                }
-            }
-
-            foreach (var msg in rtas)
-            {
-                Console.WriteLine(msg);
-            }
-        }
-
-        private int GenerarIdPago()
-        {
-            Query qr = new Query();
-            DataSet ds = new DataSet();
-            DataTable dt = new DataTable();
-            int id = 0;
-
-            try
-            {
-                qr.Nombre = "Sp_Contador_Vatios";
-                qr.AgregarParametro("@Opcion", 2);
-                qr.AgregarParametro("@TotalVatiosConsumidos", Home.TotalVatiosConsumidosHoy);
-                qr.AgregarParametro("@ValorVatio", Home.ValorVatio);
-                qr.AgregarParametro("@ValorTotal", Home.ValorTotal);
-                qr.AgregarParametro("@Subsidio", Home.Subsidio);
-
-                ds = qr.EjecutarProcedimiento();
-                dt = ds.Tables[0];
-
-                id = Convert.ToInt32(dt.Rows[0][0]);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
-
-
-            return id;
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
